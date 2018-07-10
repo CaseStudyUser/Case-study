@@ -27,16 +27,19 @@ public class XpathPage extends TestBaseSetup {
 	}
 
 	public void checkSignUp_OnlyEnteringLastName() {
+		driver.findElement(firstNameBtn).clear();
 		driver.findElement(lastNameBtn).sendKeys("Sample last name");
 		driver.findElement(signupBtn).click();
 	}
 	
 	public void checkSignUp_OnlyEnteringEmail(){
+		driver.findElement(lastNameBtn).clear();
 		driver.findElement(emailBtn).sendKeys("samplemail@gmail.com");
 		driver.findElement(signupBtn).click();
 	}
 	
 	public void checkSignUp_OnlyEnteringPwd(){
+		driver.findElement(emailBtn).clear();
 		driver.findElement(pwdBtn).sendKeys("samplemail@gmail.com");
 		driver.findElement(signupBtn).click();
 	}

@@ -1,15 +1,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Selenium Tests">
 <parameter name="appURL" value="https://www.facebook.com/"/>
-<parameter name="browserType" value="firefox"/>
-  <test name="Login test">
+ 
+  <test name="Check CSS test-Firefox">
+      <parameter name="browserType" value="firefox"/>
     <classes>
-      <class name="com.selenium.tests.LoginTest"/>
+      <class name="com.selenium.tests.CheckCSSTest"/>
     </classes>
   </test>
-  <test name="Xpaths test">
+  <test name="Check CSS test-Chrome">
+      <parameter name="browserType" value="chrome"/>
     <classes>
-      <class name="com.selenium.tests.XpathTests"/>
+      <class name="com.selenium.tests.CheckCSSTest"/>
+    </classes>
+  </test>
+  <test name="Check CSS test-edge">
+      <parameter name="browserType" value="edge"/>
+    <classes>
+      <class name="com.selenium.tests.CheckCSSTest"/>
     </classes>
   </test>
   
