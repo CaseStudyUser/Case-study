@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Tests">
+<parameter name="appURL" value="https://www.facebook.com/"/>
+<parameter name="browserType" value="firefox"/>
+  <test name="Login test">
+    <classes>
+      <class name="com.selenium.tests.LoginTest"/>
+    </classes>
+  </test>
+  <test name="Xpaths test">
+    <classes>
+      <class name="com.selenium.tests.XpathTests"/>
+    </classes>
+  </test>
+  
+  
+</suite>
