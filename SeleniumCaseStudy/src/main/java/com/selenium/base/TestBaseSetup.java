@@ -13,9 +13,35 @@ import org.testng.annotations.Parameters;
 public class TestBaseSetup {
 
 	protected WebDriver driver;
+	private static String OS = System.getProperty("os.name").toLowerCase();
+	static String chromeDriverPath = "";
+	static String firefoxDriverPath = "";
+	static String edgeDriverPath = "";
+
+	public TestBaseSetup() {
+		if (isWindows()) {
+			chromeDriverPath = System.getProperty("user.dir") + "\\drivers\\" + "chromedriver.exe";
+			firefoxDriverPath = System.getProperty("user.dir") + "\\drivers\\" + "geckodriver.exe";
+			edgeDriverPath = System.getProperty("user.dir") + "\\drivers\\" + "MicrosoftWebDriver.exe";
+		} else if (isMac()) {
+			chromeDriverPath = System.getProperty("user.dir") + "/drivers/" + "chromedriver.exe";
+			firefoxDriverPath = System.getProperty("user.dir") + "/drivers/" + "geckodriver.exe";
+			edgeDriverPath = System.getProperty("user.dir") + "/drivers/" + "MicrosoftWebDriver.exe";
+		} else {
+			System.out.println("Your OS is not support!!");
+		}
+	}
 
 	public WebDriver getDriver() {
 		return driver;
+	}
+
+	public static boolean isWindows() {
+		return (OS.indexOf("win") >= 0);
+	}
+
+	public static boolean isMac() {
+		return (OS.indexOf("mac") >= 0);
 	}
 
 	private void setDriver(String browserType, String appURL) {
@@ -34,10 +60,9 @@ public class TestBaseSetup {
 			driver = initFirefoxDriver(appURL);
 		}
 	}
-	
+
 	private static WebDriver initChromeDriver(String appURL) {
 		System.out.println("Launching google chrome");
-		String chromeDriverPath = System.getProperty("user.dir") + "\\drivers\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -48,7 +73,6 @@ public class TestBaseSetup {
 
 	private static WebDriver initFirefoxDriver(String appURL) {
 		System.out.println("Launching Firefox browser..");
-		String firefoxDriverPath = System.getProperty("user.dir") + "\\drivers\\geckodriver.exe";
 		System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
 		WebDriver driver = new FirefoxDriver();
 		driver.manage().window().maximize();
@@ -56,10 +80,9 @@ public class TestBaseSetup {
 		driver.navigate().to(appURL);
 		return driver;
 	}
-	
+
 	private static WebDriver initEdgeDriver(String appURL) {
 		System.out.println("Launching Edge browser..");
-		String edgeDriverPath = System.getProperty("user.dir") + "\\drivers\\MicrosoftWebDriver.exe";
 		System.setProperty("webdriver.edge.driver", edgeDriverPath);
 		WebDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
@@ -76,8 +99,7 @@ public class TestBaseSetup {
 
 	@AfterClass
 	public void tearDown() {
-
-		// driver.quit();
-		// System.out.println("Closing browser");
+		driver.quit();
+		System.out.println("Closing browser");
 	}
 }
