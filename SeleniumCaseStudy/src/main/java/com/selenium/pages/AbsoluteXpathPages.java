@@ -25,8 +25,8 @@ public class AbsoluteXpathPages extends TestBaseSetup {
 	}
 
 	public void checkSignUp_EnteringMobileNumberAsInvalidFormat() {
-		driver.navigate().to("https://www.facebook.com/login/");
-		driver.findElement(signUpLink).click();
+		/*driver.navigate().to("https://www.facebook.com/login/");
+		driver.findElement(signUpLink).click();*/
 		driver.findElement(firstNameBtn).sendKeys("Sample first name");
 		driver.findElement(lastNameBtn).sendKeys("Sample last name");
 		driver.findElement(signupBtn).click();

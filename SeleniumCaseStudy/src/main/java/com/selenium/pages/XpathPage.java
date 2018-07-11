@@ -12,7 +12,8 @@ public class XpathPage extends TestBaseSetup {
 	By pwdBtn = By.xpath("//input[@name='reg_passwd__']");
 	By signupBtn = By.xpath("//button[@name='websubmit']");
 	By signUpLink=By.xpath("//a[text()='Sign up for Facebook']");
-	public By errMsgElemet=By.xpath("//div[contains(text(),'your name?')]");
+	public By errMsgElement=By.xpath("//div[@class='uiContextualLayer uiContextualLayerLeft']/div/div");
+	public By errMsgElementForEnteringFirstNameOnly=By.xpath("//div[@class='uiContextualLayer uiContextualLayerBelowLeft']/div/div");
 	public String errorMsg="What's your name?";
 	
 	public XpathPage(WebDriver driver) {
@@ -20,8 +21,8 @@ public class XpathPage extends TestBaseSetup {
 	}
 
 	public void checkSignUp_OnlyEnteringFirstName() {
-		driver.navigate().to("https://www.facebook.com/login/");
-		driver.findElement(signUpLink).click();
+		/*driver.navigate().to("https://www.facebook.com/login/");
+		driver.findElement(signUpLink).click();*/
 		driver.findElement(firstNameBtn).sendKeys("Sample first name");
 		driver.findElement(signupBtn).click();
 	}

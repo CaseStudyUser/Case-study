@@ -17,23 +17,23 @@ public class XpathTests extends TestBaseSetup{
 	@Test(priority = 0)
 	public void checkSignUp_OnlyEnteringFirstNameTest() {
 		xpathPageObj.checkSignUp_OnlyEnteringFirstName();
-		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElemet).getText();
+		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElementForEnteringFirstNameOnly).getText();
 		String expectedErrMsg = xpathPageObj.errorMsg;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
 	
 	@Test(priority = 1)
-	public void checkSignUp_OnlyEnteringLastNameTest() {
+	public void checkSignUp_OnlyEnteringLastNameTest() throws InterruptedException {
 		xpathPageObj.checkSignUp_OnlyEnteringLastName();
-		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElemet).getText();
+		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElement).getText();
 		String expectedErrMsg = xpathPageObj.errorMsg;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
 	
 	@Test(priority = 2)
-	public void checkSignUp_OnlyEnteringEmailTest() {
+	public void checkSignUp_OnlyEnteringEmailTest() throws InterruptedException {
 		xpathPageObj.checkSignUp_OnlyEnteringEmail();
-		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElemet).getText();
+		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElement).getText();
 		String expectedErrMsg = xpathPageObj.errorMsg;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
@@ -41,7 +41,7 @@ public class XpathTests extends TestBaseSetup{
 	@Test(priority = 3)
 	public void checkSignUp_OnlyEnteringPwdTest() {
 		xpathPageObj.checkSignUp_OnlyEnteringPwd();
-		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElemet).getText();
+		String actualErrMsg = driver.findElement(xpathPageObj.errMsgElement).getText();
 		String expectedErrMsg = xpathPageObj.errorMsg;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
