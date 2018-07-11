@@ -1,25 +1,76 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Selenium Tests">
-<parameter name="appURL" value="https://www.facebook.com/"/>
- 
-  <test name="Check CSS test-Firefox">
-      <parameter name="browserType" value="firefox"/>
-    <classes>
-      <class name="com.selenium.tests.CheckCSSTest"/>
-    </classes>
-  </test>
-  <test name="Check CSS test-Chrome">
-      <parameter name="browserType" value="chrome"/>
-    <classes>
-      <class name="com.selenium.tests.CheckCSSTest"/>
-    </classes>
-  </test>
-  <test name="Check CSS test-edge">
-      <parameter name="browserType" value="edge"/>
-    <classes>
-      <class name="com.selenium.tests.CheckCSSTest"/>
-    </classes>
-  </test>
-  
-  
+<suite name="Selenium Tests" parallel="false" verbose="1">
+	<parameter name="appURL" value="https://www.facebook.com/" />
+	<test name="Firefox-LoginTest">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="com.selenium.tests.LoginTest" />
+		</classes>
+	</test>
+	<test name="Firefox-XpathTests">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="com.selenium.tests.XpathTests" />
+		</classes>
+	</test>
+	<test name="Firefox-AbsoluteXpathTests">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="com.selenium.tests.AbsoluteXpathTests" />
+		</classes>
+	</test>	
+	<test name="Firefox-CheckCSSTest">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="com.selenium.tests.CheckCSSTest" />
+		</classes>
+	</test>
+	<test name="Chrome-LoginTest">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="com.selenium.tests.LoginTest" />
+		</classes>
+	</test>
+	<test name="Chrome-XpathTests">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="com.selenium.tests.XpathTests" />
+		</classes>
+	</test>
+	<test name="Chrome-AbsoluteXpathTests">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="com.selenium.tests.AbsoluteXpathTests" />
+		</classes>
+	</test>	
+	<test name="Chrome-CheckCSSTest">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="com.selenium.tests.CheckCSSTest" />
+		</classes>
+	</test>
+	<test name="Edge-LoginTest">
+		<parameter name="browserType" value="edge" />
+		<classes>
+			<class name="com.selenium.tests.LoginTest" />
+		</classes>
+	</test>
+	<test name="Edge-XpathTests">
+		<parameter name="browserType" value="edge" />
+		<classes>
+			<class name="com.selenium.tests.XpathTests" />
+		</classes>
+	</test>
+	<test name="Edge-AbsoluteXpathTests">
+		<parameter name="browserType" value="edge" />
+		<classes>
+			<class name="com.selenium.tests.AbsoluteXpathTests" />
+		</classes>
+	</test>	
+	<test name="Edge-CheckCSSTest">
+		<parameter name="browserType" value="edge" />
+		<classes>
+			<class name="com.selenium.tests.CheckCSSTest" />
+		</classes>
+	</test>
 </suite>

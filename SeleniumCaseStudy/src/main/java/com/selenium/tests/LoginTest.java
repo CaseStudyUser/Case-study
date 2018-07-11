@@ -30,35 +30,33 @@ public class LoginTest extends TestBaseSetup {
 		loginPage.signInWithInValidPwd();
 		String actualErrMsg = driver.findElement(loginPage.errorMessageForInvalidEmail).getText();
 		System.out.println(actualErrMsg);
-		String expectedErrMsg = loginPage.expectedErrorMsgForInvalidPwd;
+		String expectedErrMsg = loginPage.expectedErrorMsgForInvalidEmail;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
-	
+
 	@Test(priority = 2)
 	public void signInToFacebookWithInValidEmailAndPwd() {
 		driver.navigate().back();
 		loginPage.signInWithInValidEmailAndPwd();
 		String actualErrMsg = driver.findElement(loginPage.errorMessageForInvalidEmail).getText();
 		System.out.println(actualErrMsg);
-		String expectedErrMsg = loginPage.expectedErrorMsgForInvalidEmailAndPwd;
+		String expectedErrMsg = loginPage.expectedErrorMsgForInvalidEmail;
 		Assert.assertEquals(actualErrMsg, expectedErrMsg, "Expected and actual messages are not equal");
 	}
-	
+
 	@Test(priority = 3)
 	public void signInToFacebookWithValidEmailAndPwd() {
 		driver.navigate().back();
 		loginPage.signInWithValidCredentials();
-		String actualSuccessMsg=driver.findElement(loginPage.loginSuccesMsg).getText();
-		String expectedSuccessMsg = loginPage.expectedLoginSuccessMsg;
-		Assert.assertEquals(actualSuccessMsg, expectedSuccessMsg, "Expected and actual messages are not equal");
+		Assert.assertTrue(loginPage.isElementAvailable(driver, loginPage.signoutBtn), "Sign in to facebook is failed");
 	}
-	
+
 	@Test(priority = 4)
 	public void logoutFromFacebook() {
 		loginPage.logOut();
-		
+
 	}
-	
+
 	@Test(priority = 5)
 	public void closeBrowser() {
 		driver.quit();
